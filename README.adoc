@@ -1,0 +1,29 @@
+= OpenLDAP Java (JLDAP)
+
+
+* Directory Services Markup Language (DSML)
+
+
+== Git
+
+
+----
+git remote add "github" https://github.com/poolborges/kriolos-openldap-java.git
+----
+
+
+----
+git push -u github 
+----
+
+
+----
+git branch -M main
+git push -u origin main
+----
+
+
+== Reference
+
+* https://www.openldap.org/jldap/
+* https://git.openldap.org/openldap/jldap

@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>io.github.kriolos.openldap</groupId>
+    <artifactId>openldap-dsml-dom</artifactId>
+    <version>4.6</version>
+    <packaging>war</packaging>
+    <name>openldap-dsml-dom</name>
+    
+    <properties>
+        <java.version>8</java.version>
+    </properties>
+    
+    <dependencies>
+        <dependency>
+            <groupId>io.github.kriolos.openldap</groupId>
+            <artifactId>openldap-jldap</artifactId>
+            <version>4.6</version>
+        </dependency>
+        <dependency>
+            <groupId>io.github.kriolos.openldap</groupId>
+            <artifactId>openldap-dsml-common</artifactId>
+            <version>4.6</version>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>rmic-maven-plugin</artifactId>
+                <version>1.3</version>
+                <executions>
+                    <execution>
+                        <id>rmi compilation</id>
+                        <goals>
+                            <goal>rmic</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>jaxws-maven-plugin</artifactId>
+                <version>2.6</version>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>wsimport</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <packageName>com.novell.services.dsml.dom</packageName>
+                    <wsdlDirectory>${project.basedir}/src/main/resources</wsdlDirectory>
+                    <wsdlFiles>
+                        <!-- <wsdlFile>dsml.wsdl</wsdlFile> -->
+                    </wsdlFiles>
+                </configuration>
+                
+                <!-- if you want to use a specific version of JAX-WS, you can do so like this -->
+                <dependencies>
+                    <dependency>
+                        <groupId>com.sun.xml.ws</groupId>
+                        <artifactId>jaxws-tools</artifactId>
+                        <version>2.2.5</version>
+                    </dependency>
+                </dependencies>
+            </plugin>
+        </plugins>
+    </build>
+</project>

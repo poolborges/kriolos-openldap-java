@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>io.github.kriolos.openldap</groupId>
+    <artifactId>openldap-parent</artifactId>
+    <packaging>pom</packaging>
+    <version>4.6</version>
+    
+    <properties>
+        <java.version>8</java.version>
+        <app.artifactId>${project.artifactId}</app.artifactId>
+    </properties>
+    
+    <modules>
+        <module>openldap-jldap</module>
+        <module>openldap-dsml-common</module>
+        <module>openldap-dsml-streaming</module>
+        <!--
+        <module>openldap-dsml-dom</module>
+        -->
+        <module>tests</module>
+    </modules>
+
+    <build>
+        <finalName>${project.artifactId}</finalName>
+        <sourceDirectory>${project.basedir}/src/main/java</sourceDirectory>
+
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.14.0</version>
+                <configuration>
+                    <showDeprecation>true</showDeprecation>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.openspml</groupId>
+            <artifactId>openspml</artifactId>
+            <version>0.5</version>
+        </dependency>
+
+        <dependency>
+            <groupId>commons-httpclient</groupId>
+            <artifactId>commons-httpclient</artifactId>
+            <version>3.1</version>
+        </dependency>
+        
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.13.2</version>
+            <scope>compile</scope>
+        </dependency>
+    </dependencies>
+</project>
