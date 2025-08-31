@@ -80,6 +80,10 @@ git push -u github main
 ----
 
 
+git tag -a v4.6.0-java8-20250901 -m "Release Version: 4.6 for java 8, build at 2025-09-01"
+git push github v4.6.0-java8-20250901
+
+
 == Reference
 
 * https://www.openldap.org/jldap/
