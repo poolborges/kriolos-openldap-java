@@ -31,8 +31,7 @@ jobs:
         title: "Latest Build"
         prerelease: false
         files: |
-          docs/overview.html
-          docs/overview-ieft.html
-          openldap-dsml-common/target/*.jar
+          docs/*.html
           openldap-jldap/target/*.jar
+          openldap-dsml-common/target/*.jar
           openldap-dsml-streaming/target/*.war

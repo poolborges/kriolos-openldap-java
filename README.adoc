@@ -80,8 +80,17 @@ git push -u github main
 ----
 
 
+.Create tag for release
+---
 git tag -a v4.6.0-java8-20250901 -m "Release Version: 4.6 for java 8, build at 2025-09-01"
 git push github v4.6.0-java8-20250901
+----
+
+
+.Delete Tag
+----
+git tag -d v4.6.0-java8-20250901
+----
 
 
 == Reference
