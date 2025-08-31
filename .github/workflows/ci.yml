@@ -30,16 +30,6 @@ jobs:
       with:
         java-version: ${{ matrix.java }}
         distribution: 'adopt'
-    - name: Make mvnw executable
-      run: |
-           if [ "$RUNNER_OS" == "Linux" ]; then
-              chmod +x ./mvnw
-           elif [ "$RUNNER_OS" == "macOS" ]; then
-              chmod +x ./mvnw
-           else
-              echo "$RUNNER_OS not need change permission"
-           fi
-      shell: bash
     - name: Run tests with Xvfb and collect coverage
       run: xvfb-run --auto-servernum ./mvnw test -B --no-transfer-progress
     - name: Upload coverage to Codecov
