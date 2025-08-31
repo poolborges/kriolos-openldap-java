@@ -37,7 +37,7 @@ ifdef::badges[]
 image:https://github.com/poolborges/kriolos-openldap-java/actions/workflows/ci.yml/badge.svg["Build Status", link="https://github.com/poolborges/kriolos-openldap-java/actions/workflows/ci.yml"]
 image:https://codecov.io/github/poolborges/kriolos-openldap-java/coverage.svg["Code Coverage", link="https://codecov.io/gh/poolborges/kriolos-openldap-java"]
 image:https://img.shields.io/badge/license%20OLDAP-2.0.1-blue.svg["License: OLDAP 2.0.1", link="https://spdx.org/licenses/OLDAP-2.0.1.html"]
-image:https://badges.crowdin.net/krpos/localized.svg["Crowdin/Translation Status", link="https://crowdin.com/project/krpos"]
+
 
 === Stats
 
