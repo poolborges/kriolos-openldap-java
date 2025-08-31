@@ -1,0 +1,46 @@
+name: Java CI
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  test:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        #os: [ubuntu-latest, macOS-latest, windows-latest]
+        os: [ubuntu-latest]
+        java: [8]
+      fail-fast: false
+      max-parallel: 4
+    name: Test JDK ${{ matrix.java }}, ${{ matrix.os }}
+
+    steps:
+    - uses: actions/checkout@v4
+      with:
+        submodules: recursive
+    - name: Install Xvfb
+      run: sudo apt-get update && sudo apt-get install -y xvfb
+          
+    - name: Set up JDK
+      uses: actions/setup-java@v3
+      with:
+        java-version: ${{ matrix.java }}
+        distribution: 'adopt'
+    - name: Make mvnw executable
+      run: |
+           if [ "$RUNNER_OS" == "Linux" ]; then
+              chmod +x ./mvnw
+           elif [ "$RUNNER_OS" == "macOS" ]; then
+              chmod +x ./mvnw
+           else
+              echo "$RUNNER_OS not need change permission"
+           fi
+      shell: bash
+    - name: Run tests with Xvfb and collect coverage
+      run: xvfb-run --auto-servernum ./mvnw test -B --no-transfer-progress
+    - name: Upload coverage to Codecov
+      uses: codecov/codecov-action@v3
